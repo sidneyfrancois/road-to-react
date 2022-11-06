@@ -1,3 +1,6 @@
+import Search from "./components/Search";
+import List from "./components/List";
+
 const App = () => {
   const stories = [
     {
@@ -29,38 +32,5 @@ const App = () => {
     </div>
   );
 };
-
-const Search = () => {
-  const handleChange = (event) => {
-    console.log(event);
-    console.log(event.target.value);
-  };
-
-  return (
-    <div>
-      <label htmlFor="search">Search: </label>
-      <input id="search" type="text" onChange={handleChange} />
-    </div>
-  );
-};
-
-const List = ({ list }) => (
-  <ul>
-    {list.map((item) => (
-      <Item key={item.objectID} item={item} />
-    ))}
-  </ul>
-);
-
-const Item = ({ item }) => (
-  <>
-    <li>
-      <span>{item.title}</span>
-      <span>{item.author}</span>
-      <span>{item.num_comments}</span>
-      <span>{item.url}</span>
-    </li>
-  </>
-);
 
 export default App;
