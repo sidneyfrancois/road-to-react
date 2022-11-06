@@ -21,10 +21,14 @@ const App = () => {
     },
   ];
 
+  const handleSearch = (event) => {
+    console.log(event.target.value);
+  };
+
   return (
     <div>
       <h1>My hacker stories</h1>
-      <Search />
+      <Search onSearch={handleSearch} />
 
       <hr />
 
