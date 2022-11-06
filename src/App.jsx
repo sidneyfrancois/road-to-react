@@ -28,33 +28,26 @@ const list = [
   },
 ];
 
-function App() {
+const App = () => {
   return (
     <div>
-      <h2>Hello to {title}</h2>
-      <h3>
-        {welcome.greetings} {welcome.title}
-      </h3>
-      <h3>This is the title: {getTitle("new title")}</h3>
+      <h1>My hacker stories</h1>
+      <Search />
 
-      <h4>My list: </h4>
-      <ul>
-        {list.map((item) => {
-          return (
-            <li key={item.objectID}>
-              <span>{item.author}</span>
-              <span>{item.num_comments}</span>
-              <span>{item.points}</span>
-              <span>{item.url}</span>
-            </li>
-          );
-        })}
-      </ul>
+      <hr />
 
+      <List />
+    </div>
+  );
+};
+
+const Search = () => {
+  return (
+    <div>
       <label htmlFor="search">Search: </label>
       <input id="search" type="text" />
     </div>
   );
-}
+};
 
 export default App;
