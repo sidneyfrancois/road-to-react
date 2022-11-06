@@ -1,7 +1,10 @@
 import Search from "./components/Search";
 import List from "./components/List";
+import { useState } from "react";
 
 const App = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+
   const stories = [
     {
       title: "React",
@@ -21,7 +24,12 @@ const App = () => {
     },
   ];
 
+  const searchedStories = stories.filter((story) => {
+    return story.title.includes(searchTerm);
+  });
+
   const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
     console.log(event.target.value);
   };
 
@@ -32,7 +40,7 @@ const App = () => {
 
       <hr />
 
-      <List list={stories} />
+      <List list={searchedStories} />
     </div>
   );
 };
