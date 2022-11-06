@@ -28,26 +28,42 @@ const list = [
   },
 ];
 
-const App = () => {
-  return (
-    <div>
-      <h1>My hacker stories</h1>
-      <Search />
+const App = () => (
+  <div>
+    <h1>My hacker stories</h1>
+    <Search />
 
-      <hr />
+    <hr />
 
-      <List />
-    </div>
-  );
-};
+    <List />
+  </div>
+);
 
 const Search = () => {
+  const handleChange = (event) => {
+    console.log(event);
+    console.log(event.target.value);
+  };
+
   return (
     <div>
       <label htmlFor="search">Search: </label>
-      <input id="search" type="text" />
+      <input id="search" type="text" onChange={handleChange} />
     </div>
   );
 };
+
+const List = () => (
+  <>
+    <h2>List of items</h2>
+    <Item />
+  </>
+);
+
+const Item = () => (
+  <>
+    <h4>item only</h4>
+  </>
+);
 
 export default App;
