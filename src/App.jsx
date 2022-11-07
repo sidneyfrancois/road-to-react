@@ -3,7 +3,7 @@ import List from "./components/List";
 import { useState } from "react";
 
 const App = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("react");
 
   const stories = [
     {
@@ -30,13 +30,12 @@ const App = () => {
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
-    console.log(event.target.value);
   };
 
   return (
     <div>
       <h1>My hacker stories</h1>
-      <Search onSearch={handleSearch} />
+      <Search search={searchTerm} onSearch={handleSearch} />
 
       <hr />
 
