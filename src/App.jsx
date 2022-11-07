@@ -2,14 +2,19 @@ import Search from "./components/Search";
 import List from "./components/List";
 import { useEffect, useState } from "react";
 
-const App = () => {
-  const [searchTerm, setSearchTerm] = useState(
-    localStorage.getItem("search") || ""
-  );
+// custom hook to keep the component's state in sync with the browser's local storage
+const useStorageState = (key, initialState) => {
+  const [value, setValue] = useState(localStorage.getItem(key) || initialState);
 
   useEffect(() => {
-    localStorage.setItem("search", searchTerm);
-  }, [searchTerm]);
+    localStorage.setItem(key, value);
+  }, [value, key]);
+
+  return [value, setValue];
+};
+
+const App = () => {
+  const [searchTerm, setSearchTerm] = useStorageState("search", "");
 
   const stories = [
     {
@@ -30,13 +35,13 @@ const App = () => {
     },
   ];
 
-  const searchedStories = stories.filter((story) => {
-    return story.title.toLocaleLowerCase().includes(searchTerm.toLowerCase());
-  });
-
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
+
+  const searchedStories = stories.filter((story) => {
+    return story.title.toLocaleLowerCase().includes(searchTerm.toLowerCase());
+  });
 
   return (
     <div>
