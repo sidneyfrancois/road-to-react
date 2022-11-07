@@ -1,10 +1,10 @@
-const Item = ({ item }) => (
+const Item = ({ item: { title, author, num_comments, url } }) => (
   <>
     <li>
-      <span>{item.title}</span>
-      <span>{item.author}</span>
-      <span>{item.num_comments}</span>
-      <span>{item.url}</span>
+      <span>{title}</span>
+      <span>{author}</span>
+      <span>{num_comments}</span>
+      <span>{url}</span>
     </li>
   </>
 );
