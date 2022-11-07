@@ -1,4 +1,4 @@
-const Item = ({ item: { title, author, num_comments, url } }) => (
+const Item = ({ title, author, num_comments, url }) => (
   <>
     <li>
       <span>{title}</span>

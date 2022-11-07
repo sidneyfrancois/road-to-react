@@ -3,7 +3,7 @@ import List from "./components/List";
 import { useState } from "react";
 
 const App = () => {
-  const [searchTerm, setSearchTerm] = useState("react");
+  const [searchTerm, setSearchTerm] = useState("");
 
   const stories = [
     {
