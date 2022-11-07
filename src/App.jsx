@@ -1,4 +1,4 @@
-import Search from "./components/Search";
+import InputWithLabel from "./components/Search";
 import List from "./components/List";
 import { useEffect, useState } from "react";
 
@@ -46,7 +46,12 @@ const App = () => {
   return (
     <div>
       <h1>My hacker stories</h1>
-      <Search search={searchTerm} onSearch={handleSearch} />
+      <InputWithLabel
+        id="search"
+        label="Search"
+        value={searchTerm}
+        onInputChange={handleSearch}
+      />
 
       <hr />
 

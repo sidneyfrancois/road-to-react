@@ -1,8 +1,8 @@
-const Search = ({ search, onSearch }) => (
-  <div>
-    <label htmlFor="search">Search: </label>
-    <input id="search" type="text" onChange={onSearch} value={search} />
-  </div>
+const InputWithLabel = ({ id, label, value, onInputChange, type = "text" }) => (
+  <>
+    <label htmlFor={id}>{label}: </label>
+    <input id={id} type={type} value={value} onChange={onInputChange} />
+  </>
 );
 
-export default Search;
+export default InputWithLabel;
