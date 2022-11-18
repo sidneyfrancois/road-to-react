@@ -60,7 +60,6 @@ const App = () => {
         value={searchTerm}
         isFocused
         onInputChange={handleSearch}
-        onDelete={deleteFromStories}
       >
         <strong>Search:</strong>
       </InputWithLabel>
